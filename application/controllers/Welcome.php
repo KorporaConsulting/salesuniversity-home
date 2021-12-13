@@ -27,18 +27,20 @@ class Welcome extends CI_Controller
 		);;
 
 		// semua kelas
-		$all_product = $woocommerce->get('products', [
+		$data['all_product'] = $woocommerce->get('products', [
 			'page' => 1,
 			'per_page' => 100
 		]);
 
 		// Kategori Product
-		$product_category = $woocommerce->get('products/categories');
+		$data['product_category'] = $woocommerce->get('products/categories');
 
 		// Produk Terlaris
-		$best_seller = $woocommerce->get('products', [
+		$data['best_seller'] = $woocommerce->get('products', [
 			'page' => 1,
 			'orderby' => 'popularity'
 		]);
+
+		$this->load->view('home', $data);
 	}
 }
