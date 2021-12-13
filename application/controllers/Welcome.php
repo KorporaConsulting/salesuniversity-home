@@ -29,16 +29,15 @@ class Welcome extends CI_Controller
 		// semua kelas
 		$data['all_product'] = $woocommerce->get('products', [
 			'page' => 1,
-			'per_page' => 100
+			'per_page' => 10
 		]);
-
-		// Kategori Product
-		$data['product_category'] = $woocommerce->get('products/categories');
 
 		// Produk Terlaris
 		$data['best_seller'] = $woocommerce->get('products', [
 			'page' => 1,
-			'orderby' => 'popularity'
+			'orderby' => 'popularity',
+			'per_page' => 5
+
 		]);
 
 		$this->load->view('home', $data);
