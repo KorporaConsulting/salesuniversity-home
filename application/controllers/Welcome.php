@@ -26,19 +26,19 @@ class Welcome extends CI_Controller
 			]
 		);;
 
-		$products = $woocommerce->get('products', [
+		// semua kelas
+		$all_product = $woocommerce->get('products', [
+			'page' => 1,
+			'per_page' => 100
+		]);
+
+		// Kategori Product
+		$product_category = $woocommerce->get('products/categories');
+
+		// Produk Terlaris
+		$best_seller = $woocommerce->get('products', [
 			'page' => 1,
 			'orderby' => 'popularity'
 		]);
-
-		echo count($products);
-		foreach ($products as $data) {
-			var_dump($data->name);
-		}
-
-		$categories = $woocommerce->get('products/categories');
-		foreach ($categories as $data) {
-			var_dump($data->name);
-		}
 	}
 }
