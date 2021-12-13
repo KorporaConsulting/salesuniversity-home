@@ -29,7 +29,7 @@ class Welcome extends CI_Controller
 		// semua kelas
 		$data['all_product'] = $woocommerce->get('products', [
 			'page' => 1,
-			'per_page' => 100
+			'per_page' => 10
 		]);
 
 		// Kategori Product
