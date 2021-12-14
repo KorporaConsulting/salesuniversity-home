@@ -394,7 +394,7 @@
     <script src="<?= base_url() ?>assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="<?= base_url() ?>assets/plugins/slick-1.8.0/slick.js"></script>
     <script src="<?= base_url() ?>assets/plugins/easing/easing.js"></script>
-    <!-- <script src="<?= base_url() ?>assets/js/custom.js"></script> -->
+    <script src="<?= base_url() ?>assets/js/custom.js"></script>
 </body>
 
 </html>
