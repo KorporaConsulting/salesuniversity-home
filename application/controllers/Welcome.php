@@ -65,7 +65,11 @@ class Welcome extends CI_Controller
 				'timeout' => 60
 			]
 		);;
-		$aowk = $woocommerce->get('products/categories');
+		$aowk = $woocommerce->get('products', [
+			'page' => 1,
+			'per_page' => 10,
+			'category' => '48'
+		]);
 		var_dump($aowk);
 	}
 }

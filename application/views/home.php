@@ -3483,7 +3483,11 @@
                                                 <div class="bestsellers_category"><a href="#"><?= $data->categories[0]->name?></a></div>
                                                 <div class="bestsellers_name"><a href="product.html"><?= $data->name?></a></div>
                                                 <div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php if($data->sale_price != '' ?? null):?>
+                                                    <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php else:?>
+                                                    <div class="bestsellers_price">Rp.<?= $data->regular_price?></div>
+                                                <?php endif?>
                                             </div>
                                         </div>
                                     </div>
@@ -3506,7 +3510,11 @@
                                                 <div class="bestsellers_category"><a href="#"><?= $data->categories[0]->name?></a></div>
                                                 <div class="bestsellers_name"><a href="product.html"><?= $data->name?></a></div>
                                                 <div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php if($data->sale_price != '' ?? null):?>
+                                                    <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php else:?>
+                                                    <div class="bestsellers_price">Rp.<?= $data->regular_price?></div>
+                                                <?php endif?>
                                             </div>
                                         </div>
                                     </div>
@@ -3531,7 +3539,11 @@
                                                 <div class="bestsellers_category"><a href="#"><?= $data->categories[0]->name?></a></div>
                                                 <div class="bestsellers_name"><a href="product.html"><?= $data->name?></a></div>
                                                 <div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php if($data->sale_price != '' ?? null):?>
+                                                    <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php else:?>
+                                                    <div class="bestsellers_price">Rp.<?= $data->regular_price?></div>
+                                                <?php endif?>
                                             </div>
                                         </div>
                                     </div>
@@ -3639,8 +3651,12 @@
                                         <div class="trends_content">
                                             <div class="trends_category"><a href="#"><?= $data->categories[0]->name?></a></div>
                                             <div class="trends_info clearfix">
-                                                <div class="trends_name"><a href="product.html"><?= $data->name?></a></div>
-                                                <div class="trends_price">Rp. <?= $data->price?></div>
+                                                <div class="trends_name"><a href="product.html"><?= $data->name?></a></div><br>
+                                                <?php if($data->sale_price != '' ?? null):?>
+                                                    <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php else:?>
+                                                    <div class="bestsellers_price">Rp.<?= $data->regular_price?></div>
+                                                <?php endif?>
                                             </div>
                                         </div>
                                     </div>
