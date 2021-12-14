@@ -26,11 +26,11 @@ class Welcome extends CI_Controller
 			]
 		);;
 
-		// // semua kelas
-		// $data['all_product'] = $woocommerce->get('products', [
-		// 	'page' => 1,
-		// 	'per_page' => 10
-		// ]);
+		// semua kelas
+		$data['all_product'] = $woocommerce->get('products', [
+			'page' => 1,
+			'per_page' => 10
+		]);
 
 		// Produk Terlaris
 		$data['best_seller'] = $woocommerce->get('products', [
