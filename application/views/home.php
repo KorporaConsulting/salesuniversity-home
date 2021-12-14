@@ -3658,6 +3658,7 @@
                                                     <div class="bestsellers_price">Rp.<?= $data->regular_price?></div>
                                                 <?php endif?>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
