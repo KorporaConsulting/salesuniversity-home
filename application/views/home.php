@@ -19,58 +19,6 @@
 </head>
 
 <body>
-    <style>
-        .navbar-nav {
-            font-size: larger;
-            color: blue;
-        }
-
-        .testimonial-group>.row {
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .testimonial-group>.row>.col-md-3 {
-            display: inline-block;
-            float: none;
-        }
-    </style>
-    <div class="super_container">
-        <!-- Header -->
-        <header class="header">
-            <div class="container-fluid">
-                <!-- Main Navigation -->
-                <nav class="navbar navbar-light navbar-expand-lg">
-                    <a class="navbar-brand" href="#">
-                        <img src="<?= base_url() ?>assets/images/logo/logo-su.png" class="img-fluid">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Program</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Event</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Artikel</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Panduan</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
 
         </header>
 
@@ -151,15 +99,27 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Char. Item -->
-                <div class="col-lg-3 col-md-6 char_col">
+        <!-- Best Seller -->
 
-                    <div class="char_item d-flex flex-row align-items-center justify-content-start">
-                        <div class="char_icon"><img src="<?= base_url() ?>assets/images/char_4.png" alt=""></div>
-                        <div class="char_content">
-                            <div class="char_title">Free Delivery</div>
-                            <div class="char_subtitle">from $50</div>
+        <div class="trends">
+
+            <div class="container">
+                <div class="row bg-info py-4 px-4" style="border-radius:25px">
+
+                    <!-- Trends Content -->
+                    <div class="col-lg-3">
+                        <div class="trends_container">
+                            <h2 class="trends_title">Best Seller</h2>
+                            <div class="trends_text">
+                                <p class="text-white">Produk Terlaris Tahun Ini</p>
+                            </div>
+                            <div class="trends_slider_nav">
+                                <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                                <div class="trends_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -167,232 +127,110 @@
         </div>
     </div>
 
+                    <!-- Trends Slider -->
+                    <div class="col-lg-9">
+                        <div class="trends_slider_container">
 
-    <!-- Adverts -->
+                            <!-- Trends Slider -->
 
-    <div class="adverts">
-        <div class="container">
-            <div class="row">
+                            <div class="owl-carousel owl-theme trends_slider">
 
-                <div class="col-lg-4 advert_col">
-
-                    <!-- Advert Item -->
-
-                    <div class="advert d-flex flex-row align-items-center justify-content-start">
-                        <div class="advert_content">
-                            <div class="advert_title"><a href="#">Trends 2018</a></div>
-                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</div>
-                        </div>
-                        <div class="ml-auto">
-                            <div class="advert_image"><img src="<?= base_url() ?>assets/images/adv_1.png" alt=""></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 advert_col">
-
-                    <!-- Advert Item -->
-
-                    <div class="advert d-flex flex-row align-items-center justify-content-start">
-                        <div class="advert_content">
-                            <div class="advert_subtitle">Trends 2018</div>
-                            <div class="advert_title_2"><a href="#">Sale -45%</a></div>
-                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>
-                        </div>
-                        <div class="ml-auto">
-                            <div class="advert_image"><img src="<?= base_url() ?>assets/images/adv_2.png" alt=""></div>
+                            <?php foreach($best_seller as $data): ?>
+                                <!-- Trends Slider Item -->
+                                <div class="owl-item">
+                                    <div class="trends_item">
+                                        <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data->images[0]->src?>" alt=""></div>
+                                        <div class="trends_content">
+                                            <div class="trends_category"><a href="#"><?= $data->categories[0]->name?></a></div>
+                                            <div class="trends_info clearfix">
+                                                <div class="trends_name"><a href="product.html"><?= $data->name?></a></div><br>
+                                                <?php if($data->sale_price != '' ?? null):?>
+                                                    <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
+                                                <?php else:?>
+                                                    <div class="bestsellers_price">Rp.<?= $data->regular_price?></div>
+                                                <?php endif?>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach?>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-                <div class="col-lg-4 advert_col">
-
-                    <!-- Advert Item -->
-
-                    <div class="advert d-flex flex-row align-items-center justify-content-start">
-                        <div class="advert_content">
-                            <div class="advert_title"><a href="#">Trends 2018</a></div>
-                            <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>
-                        </div>
-                        <div class="ml-auto">
-                            <div class="advert_image"><img src="<?= base_url() ?>assets/images/adv_3.png" alt=""></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
 
-    <!-- Trends -->
-
-    <div class="trends">
-        <div class="trends_background" style="background-image:url(<?= base_url() ?>assets/images/trends_background.jpg)"></div>
-        <div class="trends_overlay"></div>
-        <div class="container">
-            <div class="row">
-
-                <!-- Trends Content -->
-                <div class="col-lg-3">
-                    <div class="trends_container">
-                        <h2 class="trends_title">Trends 2018</h2>
-                        <div class="trends_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</p>
-                        </div>
-                        <div class="trends_slider_nav">
-                            <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
-                            <div class="trends_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trends Slider -->
-                <div class="col-lg-9">
-                    <div class="trends_slider_container">
-
-                        <!-- Trends Slider -->
-
-                        <div class="owl-carousel owl-theme trends_slider">
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= base_url() ?>assets/images/trends_1.jpg" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= base_url() ?>assets/images/trends_2.jpg" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Samsung Charm...</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= base_url() ?>assets/images/trends_3.jpg" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">DJI Phantom 3...</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= base_url() ?>assets/images/trends_1.jpg" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= base_url() ?>assets/images/trends_2.jpg" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                            <!-- Trends Slider Item -->
-                            <div class="owl-item">
-                                <div class="trends_item is_new">
-                                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= base_url() ?>assets/images/trends_3.jpg" alt=""></div>
-                                    <div class="trends_content">
-                                        <div class="trends_category"><a href="#">Smartphones</a></div>
-                                        <div class="trends_info clearfix">
-                                            <div class="trends_name"><a href="product.html">Jump White</a></div>
-                                            <div class="trends_price">$379</div>
-                                        </div>
-                                    </div>
-                                    <ul class="trends_marks">
-                                        <li class="trends_mark trends_discount">-25%</li>
-                                        <li class="trends_mark trends_new">new</li>
-                                    </ul>
-                                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+        <!-- Footer -->
 
     <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
 
     <footer class="footer">
         <div class="container">
             <div class="row">
+                    <div class="col-lg-3 footer_col">
+                        <div class="footer_column footer_contact">
+                            <div class="logo_container">
+                                <div class="logo"><a href="#">OneTech</a></div>
+                            </div>
+                            <div class="footer_title">Got Question? Call Us 24/7</div>
+                            <div class="footer_phone">+38 068 005 3570</div>
+                            <div class="footer_contact_text">
+                                <p>17 Princess Road, London</p>
+                                <p>Grester London NW18JR, UK</p>
+                            </div>
+                            <div class="footer_social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="col-lg-3 footer_col">
                     <div class="footer_column footer_contact">
                         <div class="logo_container">
                             <div class="logo"><a href="#">OneTech</a></div>
+                    <div class="col-lg-2 offset-lg-2">
+                        <div class="footer_column">
+                            <div class="footer_title">Find it Fast</div>
+                            <ul class="footer_list">
+                                <li><a href="#">Computers & Laptops</a></li>
+                                <li><a href="#">Cameras & Photos</a></li>
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Smartphones & Tablets</a></li>
+                                <li><a href="#">TV & Audio</a></li>
+                            </ul>
+                            <div class="footer_subtitle">Gadgets</div>
+                            <ul class="footer_list">
+                                <li><a href="#">Car Electronics</a></li>
+                            </ul>
                         </div>
                         <div class="footer_title">Got Question? Call Us 24/7</div>
                         <div class="footer_phone">+38 068 005 3570</div>
                         <div class="footer_contact_text">
                             <p>17 Princess Road, London</p>
                             <p>Grester London NW18JR, UK</p>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="footer_column">
+                            <ul class="footer_list footer_list_2">
+                                <li><a href="#">Video Games & Consoles</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Cameras & Photos</a></li>
+                                <li><a href="#">Hardware</a></li>
+                                <li><a href="#">Computers & Laptops</a></li>
+                            </ul>
                         </div>
                         <div class="footer_social">
                             <ul>
@@ -401,27 +239,26 @@
                                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                 <li><a href="#"><i class="fab fa-google"></i></a></li>
                                 <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="footer_column">
+                            <div class="footer_title">Customer Care</div>
+                            <ul class="footer_list">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Order Tracking</a></li>
+                                <li><a href="#">Wish List</a></li>
+                                <li><a href="#">Customer Services</a></li>
+                                <li><a href="#">Returns / Exchange</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Product Support</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-2 offset-lg-2">
-                    <div class="footer_column">
-                        <div class="footer_title">Find it Fast</div>
-                        <ul class="footer_list">
-                            <li><a href="#">Computers & Laptops</a></li>
-                            <li><a href="#">Cameras & Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Smartphones & Tablets</a></li>
-                            <li><a href="#">TV & Audio</a></li>
-                        </ul>
-                        <div class="footer_subtitle">Gadgets</div>
-                        <ul class="footer_list">
-                            <li><a href="#">Car Electronics</a></li>
-                        </ul>
-                    </div>
                 </div>
+            </div>
+        </footer>
 
                 <div class="col-lg-2">
                     <div class="footer_column">
@@ -434,6 +271,7 @@
                         </ul>
                     </div>
                 </div>
+        <!-- Copyright -->
 
                 <div class="col-lg-2">
                     <div class="footer_column">
@@ -449,6 +287,10 @@
                         </ul>
                     </div>
                 </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
 
             </div>
         </div>
@@ -475,12 +317,27 @@
                                 <li><a href="#"><img src="<?= base_url() ?>assets/images/logos_3.png" alt=""></a></li>
                                 <li><a href="#"><img src="<?= base_url() ?>assets/images/logos_4.png" alt=""></a></li>
                             </ul>
+                        <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                            <div class="copyright_content">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>. Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </div>
+                            <div class="logos ml-sm-auto">
+                                <ul class="logos_list">
+                                    <li><a href="#"><img src="<?= base_url() ?>assets/images/logos_1.png" alt=""></a></li>
+                                    <li><a href="#"><img src="<?= base_url() ?>assets/images/logos_2.png" alt=""></a></li>
+                                    <li><a href="#"><img src="<?= base_url() ?>assets/images/logos_3.png" alt=""></a></li>
+                                    <li><a href="#"><img src="<?= base_url() ?>assets/images/logos_4.png" alt=""></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
@@ -495,6 +352,7 @@
     <script src="<?= base_url() ?>assets/plugins/slick-1.8.0/slick.js"></script>
     <script src="<?= base_url() ?>assets/plugins/easing/easing.js"></script>
     <!-- <script src="<?= base_url() ?>assets/js/custom.js"></script> -->
+    <script src="<?= base_url() ?>assets/js/custom.js"></script>
 </body>
 
 </html>
