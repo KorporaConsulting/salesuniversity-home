@@ -3451,7 +3451,7 @@
             </div>
         </div>
 
-        <!-- Best Sellers -->
+        <!-- kelass Online -->
 
         <div class="best_sellers">
             <div class="container">
@@ -3462,8 +3462,8 @@
                                 <div class="new_arrivals_title">Kelas Online</div>
                                 <ul class="clearfix">
                                     <li class="active">Semua Kelas</li>
-                                    <li>B2B</li>
-                                    <li>Sales</li>
+                                    <li>B2B B2C</li>
+                                    <li>Sales Mindstet</li>
                                 </ul>
                                 <div class="tabs_line"><span></span></div>
                             </div>
@@ -3497,23 +3497,20 @@
 
                                 <div class="bestsellers_slider slider">
 
+                                <?php foreach($b2b as $data):?>
                                     <!-- Best Sellers Item -->
                                     <div class="bestsellers_item discount">
                                         <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
-                                            <div class="bestsellers_image"><img src="<?= base_url() ?>assets/images/best_1.png" alt=""></div>
+                                            <div class="bestsellers_image"><img src="<?= $data->images[0]->src?>" alt=""></div>
                                             <div class="bestsellers_content">
-                                                <div class="bestsellers_category"><a href="#">Headphones</a></div>
-                                                <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a></div>
+                                                <div class="bestsellers_category"><a href="#"><?= $data->categories[0]->name?></a></div>
+                                                <div class="bestsellers_name"><a href="product.html"><?= $data->name?></a></div>
                                                 <div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="bestsellers_price discount">$225<span>$300</span></div>
+                                                <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
                                             </div>
                                         </div>
-                                        <div class="bestsellers_fav active"><i class="fas fa-heart"></i></div>
-                                        <ul class="bestsellers_marks">
-                                            <li class="bestsellers_mark bestsellers_discount">-25%</li>
-                                            <li class="bestsellers_mark bestsellers_new">new</li>
-                                        </ul>
                                     </div>
+                                    <?php endforeach?>
 
 
                                 </div>
@@ -3525,23 +3522,20 @@
 
                                 <div class="bestsellers_slider slider">
 
+                                <?php foreach($sales_mindset as $data):?>
                                     <!-- Best Sellers Item -->
                                     <div class="bestsellers_item discount">
                                         <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
-                                            <div class="bestsellers_image"><img src="<?= base_url() ?>assets/images/best_1.png" alt=""></div>
+                                            <div class="bestsellers_image"><img src="<?= $data->images[0]->src?>" alt=""></div>
                                             <div class="bestsellers_content">
-                                                <div class="bestsellers_category"><a href="#">Headphones</a></div>
-                                                <div class="bestsellers_name"><a href="product.html">Xiaomi Redmi Note 4</a></div>
+                                                <div class="bestsellers_category"><a href="#"><?= $data->categories[0]->name?></a></div>
+                                                <div class="bestsellers_name"><a href="product.html"><?= $data->name?></a></div>
                                                 <div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="bestsellers_price discount">$225<span>$300</span></div>
+                                                <div class="bestsellers_price discount">Rp. <?= $data->sale_price?><span>Rp.<?= $data->regular_price?></span></div>
                                             </div>
                                         </div>
-                                        <div class="bestsellers_fav active"><i class="fas fa-heart"></i></div>
-                                        <ul class="bestsellers_marks">
-                                            <li class="bestsellers_mark bestsellers_discount">-25%</li>
-                                            <li class="bestsellers_mark bestsellers_new">new</li>
-                                        </ul>
                                     </div>
+                                    <?php endforeach?>
 
                                 </div>
                             </div>
