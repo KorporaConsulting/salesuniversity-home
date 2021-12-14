@@ -53,6 +53,8 @@ class Welcome extends CI_Controller
 
 		]);
 
+		$data['categories'] = $woocommerce->get('products/categories');
+
 		$this->load->view('home',$data);
 	}
 	public function tes(){
