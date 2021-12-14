@@ -70,6 +70,7 @@ class Welcome extends CI_Controller
 			'per_page' => 10,
 			'category' => '48'
 		]);
+		$cat = $woocommerce->get('products/categories');
 		var_dump($aowk);
 	}
 }
