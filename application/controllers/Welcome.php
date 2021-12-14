@@ -23,6 +23,7 @@ class Welcome extends CI_Controller
 			'cs_2416fb9fe3138acc4fd5c91e1137956ecc7cc4ee',
 			[
 				'version' => 'wc/v3',
+				'timeout' => 60
 			]
 		);;
 
