@@ -37,10 +37,35 @@ class Product_model extends CI_Model
         // ambil harga reguler ama price
         $this->db->where('postmeta.meta_key', '_regular_price');
         $this->db->or_where('postmeta.meta_key', '_sale_price');
+        $this->db->or_where('postmeta.meta_key', '_thumbnail_id');
+        // $this->db->or_where('postmeta.meta_key', '_wp_attached_file');
 
         // di grup deh
         $this->db->group_by('postmeta.post_id');
 
-        return $this->db->get()->result_array();
+        $datah = $this->db->get()->result();
+
+        $no = 0;
+        foreach ($datah as $data) {
+            $mekey = explode(", ", $data->meta_key);
+            $meval = explode(", ", $data->meta_value);
+            $meta  = array_combine($mekey, $meval);
+            $image =
+
+                $post['id_post']       = $data->id_post;
+            $post['judul']         = $data->judul;
+            $post['slug_post']     = $data->slug_post;
+            $post['tanggal_post']  = $data->tanggal_post;
+            $post['kategori']      = $data->kategori;
+            $post['slug_kategori'] = $data->slug_kategori;
+            $post['diskon']        = $data->diskon;
+            $post['sale_price']    = $meta['_sale_price'] ?? null;
+            $post['regular_price'] = $meta['_regular_price'];
+            // $post['img'] = $this->db->get('posts');
+            $hasil[$no] = $post;
+            $no++;
+        }
+
+        return ($hasil);
     }
 }
