@@ -37,8 +37,6 @@ class Product_model extends CI_Model
         // ambil harga reguler ama price
         $this->db->where('postmeta.meta_key', '_regular_price');
         $this->db->or_where('postmeta.meta_key', '_sale_price');
-        $this->db->or_where('postmeta.meta_key', '_thumbnail_id');
-        // $this->db->or_where('postmeta.meta_key', '_wp_attached_file');
 
         // di grup deh
         $this->db->group_by('postmeta.post_id');
@@ -50,9 +48,9 @@ class Product_model extends CI_Model
             $mekey = explode(", ", $data->meta_key);
             $meval = explode(", ", $data->meta_value);
             $meta  = array_combine($mekey, $meval);
-            $image =
+            $images = $this->get_images($data->id_post);
 
-                $post['id_post']       = $data->id_post;
+            $post['id_post']       = $data->id_post;
             $post['judul']         = $data->judul;
             $post['slug_post']     = $data->slug_post;
             $post['tanggal_post']  = $data->tanggal_post;
@@ -61,11 +59,23 @@ class Product_model extends CI_Model
             $post['diskon']        = $data->diskon;
             $post['sale_price']    = $meta['_sale_price'] ?? null;
             $post['regular_price'] = $meta['_regular_price'];
-            // $post['img'] = $this->db->get('posts');
-            $hasil[$no] = $post;
+            $post['img']           = $images->guid;
+            $hasil[$no]             = $post;
             $no++;
         }
 
         return ($hasil);
+    }
+
+    public function get_images($id_post)
+    {
+        $this->db->select('*');
+        $this->db->from('postmeta');
+
+        $this->db->join('posts', 'postmeta.meta_value = posts.id');
+
+        $this->db->where('postmeta.post_id', $id_post);
+        $this->db->where('postmeta.meta_key', '_thumbnail_id');
+        return $this->db->get()->row();
     }
 }
