@@ -21,10 +21,9 @@ class Product_model extends CI_Model
 
         $this->db->join('posts', 'posts.id = wc_product_meta_lookup.product_id');
         $this->db->join('postmeta', 'postmeta.post_id = wc_product_meta_lookup.product_id');
-        $this->db->join('term_relationships', 'term_relationships.object_id = wc_product_meta_lookup.product_id');
 
-        $this->db->join('term_taxonomy', 'term_taxonomy.term_taxonomy_id = term_relationships.term_taxonomy_id');
-        $this->db->join('terms', 'terms.term_id = term_taxonomy.term_id');
+        $this->db->join('term_relationships', 'term_relationships.object_id = posts.id');
+        $this->db->join('terms', 'terms.term_id = term_relationships.term_taxonomy_id');
 
         $this->db->where(['term_relationships.term_taxonomy_id' => 15]);
 
