@@ -13,8 +13,7 @@ class Product_model extends CI_Model
         terms.name as kategori,
         terms.slug as slug_kategori,
         wc_product_meta_lookup.onsale as diskon,
-        GROUP_CONCAT(wpkv_postmeta.meta_key SEPARATOR ",") as meta_key,
-        GROUP_CONCAT(wpkv_postmeta.meta_value SEPARATOR ",") as meta_value,
+       
         ';
 
         $this->db->select($select, false);
@@ -23,8 +22,6 @@ class Product_model extends CI_Model
         // biar di ambil produk woocomerce aja
         $this->db->join('wc_product_meta_lookup', 'posts.id = wc_product_meta_lookup.product_id');
 
-        // nah price ama saleprice ada disini pokoknya
-        $this->db->join('postmeta', 'postmeta.post_id = wc_product_meta_lookup.product_id');
 
         // ambil kategori
         $this->db->join('term_relationships', 'posts.id = term_relationships.object_id');
@@ -34,21 +31,15 @@ class Product_model extends CI_Model
         $this->db->where('terms.term_id != 2');
         $this->db->where('terms.term_id != 8');
 
-        // ambil harga reguler ama price
-        $this->db->where('postmeta.meta_key', '_regular_price');
-        $this->db->or_where('postmeta.meta_key', '_sale_price');
-
-        // di grup deh
-        $this->db->group_by('postmeta.post_id');
 
         $datah = $this->db->get()->result();
 
         $no = 0;
         foreach ($datah as $data) {
-            $mekey = explode(", ", $data->meta_key);
-            $meval = explode(", ", $data->meta_value);
-            $meta  = array_combine($mekey, $meval);
-            $images = $this->get_images($data->id_post);
+
+            $sale_price = $this->get_sale_price($data->id_post);
+            $reg_price  = $this->get_regular_price($data->id_post);
+            $images     = $this->get_images($data->id_post);
 
             $post['id_post']       = $data->id_post;
             $post['judul']         = $data->judul;
@@ -57,25 +48,52 @@ class Product_model extends CI_Model
             $post['kategori']      = $data->kategori;
             $post['slug_kategori'] = $data->slug_kategori;
             $post['diskon']        = $data->diskon;
-            $post['sale_price']    = $meta['_sale_price'] ?? null;
-            $post['regular_price'] = $meta['_regular_price'];
-            $post['img']           = $images->guid;
-            $hasil[$no]             = $post;
+            $post['sale_price']    = $sale_price;
+            $post['regular_price'] = $reg_price;
+            $post['img']           = $images;
+            $hasil[$no]            = $post;
             $no++;
         }
 
         return ($hasil);
     }
 
+    public function get_sale_price($id_post)
+    {
+        $this->db->select('postmeta.meta_value');
+        $this->db->from('postmeta');
+
+        $this->db->join('posts', 'postmeta.post_id = posts.id');
+
+        $this->db->where('postmeta.post_id', $id_post);
+        $this->db->where('postmeta.meta_key', '_sale_price');
+        $hasil = $this->db->get()->row();
+        return $hasil->meta_value ?? null;
+    }
+
+    public function get_regular_price($id_post)
+    {
+        $this->db->select('postmeta.meta_value');
+        $this->db->from('postmeta');
+
+        $this->db->join('posts', 'postmeta.post_id = posts.id');
+
+        $this->db->where('postmeta.post_id', $id_post);
+        $this->db->where('postmeta.meta_key', '_regular_price');
+        $hasil = $this->db->get()->row();
+        return $hasil->meta_value ?? null;
+    }
+
     public function get_images($id_post)
     {
-        $this->db->select('*');
+        $this->db->select('posts.guid');
         $this->db->from('postmeta');
 
         $this->db->join('posts', 'postmeta.meta_value = posts.id');
 
         $this->db->where('postmeta.post_id', $id_post);
         $this->db->where('postmeta.meta_key', '_thumbnail_id');
-        return $this->db->get()->row();
+        $hasil = $this->db->get()->row();
+        return $hasil->guid;
     }
 }
