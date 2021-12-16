@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Product_model extends CI_Model
 {
-    public function get_product()
+    public function get_product($limit = null)
     {
         $select = '
         posts.id as id_post,
@@ -31,6 +31,9 @@ class Product_model extends CI_Model
         $this->db->where('terms.term_id != 2');
         $this->db->where('terms.term_id != 8');
 
+        if ($limit != null) {
+            $this->db->limit($limit[0], $limit[1] ?? 0);
+        }
 
         $datah = $this->db->get()->result();
 
@@ -58,7 +61,7 @@ class Product_model extends CI_Model
         return ($hasil);
     }
 
-    public function get_featured_product()
+    public function get_featured_product($limit = null)
     {
         $select = '
         posts.id as id_post,
@@ -83,6 +86,9 @@ class Product_model extends CI_Model
         // $this->db->where('terms.term_id != 2');
         $this->db->where('terms.term_id', '8');
 
+        if ($limit != null) {
+            $this->db->limit($limit[0], $limit[1] ?? 0);
+        }
 
         $datah = $this->db->get()->result();
 
@@ -111,7 +117,7 @@ class Product_model extends CI_Model
         return ($hasil);
     }
 
-    public function get_product_by_category($term_id)
+    public function get_product_by_category($term_id, $limit = null)
     {
         $select = '
         posts.id as id_post,
@@ -136,6 +142,9 @@ class Product_model extends CI_Model
         // $this->db->where('terms.term_id != 2');
         $this->db->where('terms.term_id', $term_id);
 
+        if ($limit != null) {
+            $this->db->limit($limit[0], $limit[1] ?? 0);
+        }
 
         $datah = $this->db->get()->result();
 
@@ -164,7 +173,7 @@ class Product_model extends CI_Model
         return ($hasil);
     }
 
-    public function get_best_seller_product()
+    public function get_best_seller_product($limit = null)
     {
         $select = '
         posts.id as id_post,
@@ -193,6 +202,10 @@ class Product_model extends CI_Model
         $this->db->where('postmeta.meta_key', 'total_sales');
 
         $this->db->order_by('cast(wpkv_postmeta.meta_value as int)', 'DESC');
+
+        if ($limit != null) {
+            $this->db->limit($limit[0], $limit[1] ?? 0);
+        }
 
         $datah = $this->db->get()->result();
         // die;

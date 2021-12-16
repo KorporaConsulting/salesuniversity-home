@@ -28,7 +28,7 @@ class Product extends CI_Controller
 
     public function bestseller()
     {
-        $result = $this->product->get_best_seller_product();
+        $result = $this->product->get_best_seller_product([5]);
         var_dump($result);
         $this->load->view('welcome_message');
     }
