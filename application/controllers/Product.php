@@ -16,7 +16,16 @@ class Product extends CI_Controller
     {
         $result = $this->product->get_product();
         var_dump($result);
+        $this->load->view('welcome_message');
     }
+
+    public function featured()
+    {
+        $result = $this->product->get_featured_product();
+        var_dump($result);
+        $this->load->view('welcome_message');
+    }
+
 
     public function all()
     {
