@@ -788,20 +788,20 @@ $(document).ready(function()
 			var trendsSlider = $('.trends_slider');
 			trendsSlider.owlCarousel(
 			{
-				center:true,
+				// center :true,
 				loop:false,
-				margin:15,
+				margin:30,
 				nav:false,
 				dots:false,
-				autoplayHoverPause:false,
+				autoplayHoverPause:true,
 				autoplay:false,
 				responsive:
 				{
 					0:{
 						items:1.5,
-						margin:20,
+
 					},
-					575:{items:3},
+					575:{items:2},
 					991:{items:3}
 				}
 			});
@@ -837,20 +837,20 @@ $(document).ready(function()
 			var b2bSlider = $('.b2b_slider');
 			b2bSlider.owlCarousel(
 			{
-				center:true,
+				// center :true,
 				loop:false,
-				margin:15,
+				margin:30,
 				nav:false,
 				dots:false,
-				autoplayHoverPause:false,
+				autoplayHoverPause:true,
 				autoplay:false,
 				responsive:
 				{
 					0:{
 						items:1.5,
-						margin:20,
+
 					},
-					575:{items:3},
+					575:{items:2},
 					991:{items:3}
 				}
 			});
@@ -886,20 +886,20 @@ $(document).ready(function()
 			var b2cSlider = $('.b2c_slider');
 			b2cSlider.owlCarousel(
 			{
-				center:true,
+				// center :true,
 				loop:false,
-				margin:15,
+				margin:30,
 				nav:false,
 				dots:false,
-				autoplayHoverPause:false,
+				autoplayHoverPause:true,
 				autoplay:false,
 				responsive:
 				{
 					0:{
 						items:1.5,
-						margin:20,
+
 					},
-					575:{items:3},
+					575:{items:2},
 					991:{items:3}
 				}
 			});
@@ -935,20 +935,20 @@ $(document).ready(function()
 			var mindSlider = $('.mind_slider');
 			mindSlider.owlCarousel(
 			{
-				center:true,
+				// center :true,
 				loop:false,
-				margin:15,
+				margin:30,
 				nav:false,
 				dots:false,
-				autoplayHoverPause:false,
+				autoplayHoverPause:true,
 				autoplay:false,
 				responsive:
 				{
 					0:{
 						items:1.5,
-						margin:20,
+
 					},
-					575:{items:3},
+					575:{items:2},
 					991:{items:3}
 				}
 			});

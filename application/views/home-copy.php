@@ -47,11 +47,11 @@
             }
         }
 
-        @media all and (max-width: 499px) {
+        /* @media all and (max-width: 499px) {
             .owl-item {
                 width: 210px !important;
             }
-        }
+        } */
 
         .trends {
             padding-top: 20px !important;
@@ -233,7 +233,7 @@
                                 <div class="owl-carousel owl-theme deals_slider">
                                     <?php
                                     $no = 0;
-                                    foreach ($featured as $data) : ?>
+                                    foreach ($all_product as $data) : ?>
                                         <!-- Deals Item -->
                                         <div class="owl-item deals_item">
                                             <div class="deals_image"><img src="<?= $data['img'] ?>" alt=""></div>
@@ -265,7 +265,7 @@
                                     <div class="featured_slider slider">
                                         <?php
                                         $no = 0;
-                                        foreach ($all_product as $data) : ?>
+                                        foreach ($featured as $data) : ?>
                                             <!-- Slider Item -->
                                             <div class="featured_slider_item">
                                                 <div class="border_active"></div>
