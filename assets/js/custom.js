@@ -57,6 +57,8 @@ $(document).ready(function()
 	bestsellersSlider();
 	initTabs();
 	initTrendsSlider();
+	initb2bSlider();
+	initb2cSlider();
 	initReviewsSlider();
 	initViewedSlider();
 	initBrandsSlider();
@@ -785,16 +787,19 @@ $(document).ready(function()
 			var trendsSlider = $('.trends_slider');
 			trendsSlider.owlCarousel(
 			{
+				center:true,
 				loop:false,
-				margin:30,
+				margin:15,
 				nav:false,
 				dots:false,
-				autoplayHoverPause:true,
+				autoplayHoverPause:false,
 				autoplay:false,
 				responsive:
 				{
-					0:{items:1},
-					575:{items:2},
+					0:{
+						items:2
+					},
+					575:{items:3},
 					991:{items:3}
 				}
 			});
@@ -823,7 +828,102 @@ $(document).ready(function()
 			}
 		}
 	}
+	function initb2bSlider()
+	{
+		if($('.b2b_slider').length)
+		{
+			var b2bSlider = $('.b2b_slider');
+			b2bSlider.owlCarousel(
+			{
+				center:true,
+				loop:false,
+				margin:15,
+				nav:false,
+				dots:false,
+				autoplayHoverPause:false,
+				autoplay:false,
+				responsive:
+				{
+					0:{
+						items:2
+					},
+					575:{items:3},
+					991:{items:3}
+				}
+			});
 
+			b2bSlider.on('click', '.b2b_fav', function (ev)
+			{
+			    $(ev.target).toggleClass('active');
+			});
+
+			if($('.b2b_prev').length)
+			{
+				var prev = $('.b2b_prev');
+				prev.on('click', function()
+				{
+					b2bSlider.trigger('prev.owl.carousel');
+				});
+			}
+
+			if($('.b2b_next').length)
+			{
+				var next = $('.b2b_next');
+				next.on('click', function()
+				{
+					b2bSlider.trigger('next.owl.carousel');
+				});
+			}
+		}
+	}
+	function initb2cSlider()
+	{
+		if($('.b2c_slider').length)
+		{
+			var b2cSlider = $('.b2c_slider');
+			b2cSlider.owlCarousel(
+			{
+				center:true,
+				loop:false,
+				margin:15,
+				nav:false,
+				dots:false,
+				autoplayHoverPause:false,
+				autoplay:false,
+				responsive:
+				{
+					0:{
+						items:2
+					},
+					575:{items:3},
+					991:{items:3}
+				}
+			});
+
+			b2cSlider.on('click', '.b2c_fav', function (ev)
+			{
+			    $(ev.target).toggleClass('active');
+			});
+
+			if($('.b2c_prev').length)
+			{
+				var prev = $('.b2c_prev');
+				prev.on('click', function()
+				{
+					b2cSlider.trigger('prev.owl.carousel');
+				});
+			}
+
+			if($('.b2c_next').length)
+			{
+				var next = $('.b2c_next');
+				next.on('click', function()
+				{
+					b2cSlider.trigger('next.owl.carousel');
+				});
+			}
+		}
+	}
 	/* 
 
 	17. Init Reviews Slider

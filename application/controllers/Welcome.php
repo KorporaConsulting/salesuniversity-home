@@ -5,6 +5,11 @@ use Automattic\WooCommerce\Client;
 
 class Welcome extends CI_Controller
 {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Product_model', 'product');
+	}
 
 	public function index()
 	{
@@ -15,49 +20,16 @@ class Welcome extends CI_Controller
 		- Kelas Best Seller
 		- Kelas Per Kategori
 		*/
-
-
-		$woocommerce = new Client(
-			'https://salesuniversity.id',
-			'ck_2f467cee54711ecfa9ba06cc3beb8d8c98aa8e58',
-			'cs_2416fb9fe3138acc4fd5c91e1137956ecc7cc4ee',
-			[
-				'version' => 'wc/v3',
-				'timeout' => 60
-			]
-		);;
-
-		// semua kelas
-		$data['all_product'] = $woocommerce->get('products', [
-			'page' => 1,
-			'per_page' => 10
-		]);
-
-		$data['b2b'] = $woocommerce->get('products', [
-			'page' => 1,
-			'per_page' => 10,
-			'category' => '48'
-		]);
-
-		$data['sales_mindset'] = $woocommerce->get('products', [
-			'page' => 1,
-			'per_page' => 10,
-			'category' => '49'
-
-		]);
-		// Produk Terlaris
-		$data['best_seller'] = $woocommerce->get('products', [
-			'page' => 1,
-			'orderby' => 'popularity',
-			'per_page' => 5
-
-		]);
-
-		$data['categories'] = $woocommerce->get('products/categories');
-
-		$this->load->view('home',$data);
+		$data['featured'] = $this->product->get_featured_product();
+		$data['all_product'] = $this->product->get_product();
+		$data['best_seller'] = $this->product->get_best_seller_product([10]);
+		$data['b2c'] = $this->product->get_product_by_category(46, [10]);
+		$data['b2bb2c'] = $this->product->get_product_by_category(48, [10]);
+		$data['mindset'] = $this->product->get_product_by_category(49, [10]);
+		$this->load->view('home-copy', $data);
 	}
-	public function tes(){
+	public function tes()
+	{
 		$woocommerce = new Client(
 			'https://salesuniversity.id',
 			'ck_2f467cee54711ecfa9ba06cc3beb8d8c98aa8e58',
