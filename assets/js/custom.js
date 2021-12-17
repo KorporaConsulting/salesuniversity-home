@@ -59,6 +59,7 @@ $(document).ready(function()
 	initTrendsSlider();
 	initb2bSlider();
 	initb2cSlider();
+	initmindSlider();
 	initReviewsSlider();
 	initViewedSlider();
 	initBrandsSlider();
@@ -920,6 +921,54 @@ $(document).ready(function()
 				next.on('click', function()
 				{
 					b2cSlider.trigger('next.owl.carousel');
+				});
+			}
+		}
+	}
+	function initmindSlider()
+	{
+		if($('.mind_slider').length)
+		{
+			var mindSlider = $('.mind_slider');
+			mindSlider.owlCarousel(
+			{
+				center:true,
+				loop:false,
+				margin:15,
+				nav:false,
+				dots:false,
+				autoplayHoverPause:false,
+				autoplay:false,
+				responsive:
+				{
+					0:{
+						items:2
+					},
+					575:{items:3},
+					991:{items:3}
+				}
+			});
+
+			mindSlider.on('click', '.mind_fav', function (ev)
+			{
+			    $(ev.target).toggleClass('active');
+			});
+
+			if($('.mind_prev').length)
+			{
+				var prev = $('.mind_prev');
+				prev.on('click', function()
+				{
+					mindSlider.trigger('prev.owl.carousel');
+				});
+			}
+
+			if($('.mind_next').length)
+			{
+				var next = $('.mind_next');
+				next.on('click', function()
+				{
+					mindSlider.trigger('next.owl.carousel');
 				});
 			}
 		}

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>OneTech</title>
+    <title>Beranda - Sales University</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
@@ -144,7 +144,6 @@
                 <a href="https://salesuniversity.id/kategori-produk/b2b" class="btn btn-info">B2B</a>
                 <a href="https://salesuniversity.id/kategori-produk/b2c" class="btn btn-info">B2C</a>
                 <a href="https://salesuniversity.id/kategori-produk/sales-mindset" class="btn btn-info">Sales Mindset</a>
-                <a href="https://salesuniversity.id/kategori-produk/sales-mindset" class="btn btn-info">Sales Mindset</a>
                 <a href="https://salesuniversity.id/shop/" class="btn btn-info">Semua Kategori</a>
             </div>
         </div>
@@ -222,9 +221,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
-
                         <!-- Deals -->
-
                         <div class="deals">
                             <div class="deals_title">Rekomendasi</div>
                             <div class="deals_slider_container">
@@ -411,8 +408,8 @@
                                 <a href="#" class="text-white">Lihat Semua ></a>
                             </div>
                             <div class="px-5 trends_slider_nav">
-                                <div class="b2c_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
-                                <div class="b2c_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
+                                <div class="mind_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                                <div class="mind_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                             </div>
                         </div>
                     </div>
@@ -421,7 +418,7 @@
                     <div class="col-lg-8">
                         <div class="trends_slider_container">
                             <!-- Trends Slider -->
-                            <div class="owl-carousel owl-theme b2c_slider">
+                            <div class="owl-carousel owl-theme mind_slider">
                                 <?php
                                 $no = 0;
                                 foreach ($mindset as $data) : ?>
