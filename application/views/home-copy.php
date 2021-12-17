@@ -186,7 +186,9 @@
                     <!-- Trends Slider -->
                     <div class="col-lg-8">
                         <div class="trends_slider_container">
+
                             <!-- Trends Slider -->
+
                             <div class="owl-carousel owl-theme trends_slider">
                                 <?php
                                 $no = 0;
@@ -200,9 +202,9 @@
                                                 <div class="trends_info clearfix">
                                                     <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
                                                     <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= $data['sale_price'] ?><span>Rp.<?= $data['regular_price'] ?></span></div>
+                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
                                                     <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= $data['regular_price'] ?></div>
+                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
                                                     <?php endif ?>
                                                     <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
                                                 </div>
@@ -270,7 +272,7 @@
                                                 <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 150px;" src="<?= $data['img'] ?>" alt=""></div>
                                                     <div class="product_content">
-                                                        <div class="product_price discount">Rp. <?= $data['sale_price'] ?><span>Rp. <?= $data['regular_price'] ?></span></div>
+                                                        <div class="product_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", "."); ?><span><s>Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></s></span></div>
                                                         <div><a class="text-dark" href="product.html"><?= $data['judul'] ?></a></div>
                                                         <div class="product_extras">
                                                             <button class="product_cart_button">BELI</button>
@@ -328,9 +330,9 @@
                                                 <div class="trends_info clearfix">
                                                     <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
                                                     <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= $data['sale_price'] ?><span>Rp.<?= $data['regular_price'] ?></span></div>
+                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
                                                     <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= $data['regular_price'] ?></div>
+                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
                                                     <?php endif ?>
                                                     <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
                                                 </div>
@@ -380,9 +382,9 @@
                                                 <div class="trends_info clearfix">
                                                     <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
                                                     <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= $data['sale_price'] ?><span>Rp.<?= $data['regular_price'] ?></span></div>
+                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
                                                     <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= $data['regular_price'] ?></div>
+                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
                                                     <?php endif ?>
                                                     <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
                                                 </div>
@@ -432,9 +434,9 @@
                                                 <div class="trends_info clearfix">
                                                     <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
                                                     <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= $data['sale_price'] ?><span>Rp.<?= $data['regular_price'] ?></span></div>
+                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
                                                     <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= $data['regular_price'] ?></div>
+                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
                                                     <?php endif ?>
                                                     <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
                                                 </div>
@@ -485,9 +487,9 @@
                                                 <div class="trends_info clearfix">
                                                     <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
                                                     <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= $data['sale_price'] ?><span>Rp.<?= $data['regular_price'] ?></span></div>
+                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
                                                     <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= $data['regular_price'] ?></div>
+                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
                                                     <?php endif ?>
                                                     <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
                                                 </div>
