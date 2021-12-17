@@ -186,9 +186,7 @@
                     <!-- Trends Slider -->
                     <div class="col-lg-8">
                         <div class="trends_slider_container">
-
                             <!-- Trends Slider -->
-
                             <div class="owl-carousel owl-theme trends_slider">
                                 <?php
                                 $no = 0;
@@ -451,6 +449,58 @@
             </div>
         </div>
 
+        <div class="trends">
+            <div class="container">
+                <!-- <div class="row bg-info" style="border-radius:25px"> -->
+                <div class="border border-dark row py-4" style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px">
+
+                    <!-- Trends Content -->
+                    <div class="col-lg-4">
+                        <div class="trends_container">
+                            <h2 class="px-5 trends_title text-white">SEMUA KELAS</h2>
+                            <div class="px-5 trends_text">
+                                <a href="#" class="text-white">Lihat Semua ></a>
+                            </div>
+                            <div class="px-5 trends_slider_nav">
+                                <div class="all_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                                <div class="all_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trends Slider -->
+                    <div class="col-lg-8">
+                        <div class="trends_slider_container">
+                            <!-- Trends Slider -->
+                            <div class="owl-carousel owl-theme all_slider">
+                                <?php
+                                $no = 0;
+                                foreach ($all_product as $data) : ?>
+                                    <!-- Trends Slider Item -->
+                                    <div class="owl-item">
+                                        <div class="trends_item">
+                                            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data['img'] ?>" alt=""></div>
+                                            <div class="trends_content">
+                                                <div class="trends_category"><a href="#"><?= $data['kategori'] ?></a></div>
+                                                <div class="trends_info clearfix">
+                                                    <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
+                                                    <?php if ($data['sale_price'] != '' ?? null) : ?>
+                                                        <div class="bestsellers_price discount">Rp. <?= $data['sale_price'] ?><span>Rp.<?= $data['regular_price'] ?></span></div>
+                                                    <?php else : ?>
+                                                        <div class="bestsellers_price">Rp.<?= $data['regular_price'] ?></div>
+                                                    <?php endif ?>
+                                                    <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Footer -->
 
         <footer class="footer">

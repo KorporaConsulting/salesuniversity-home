@@ -60,6 +60,7 @@ $(document).ready(function()
 	initb2bSlider();
 	initb2cSlider();
 	initmindSlider();
+	initallSlider();
 	initReviewsSlider();
 	initViewedSlider();
 	initBrandsSlider();
@@ -973,6 +974,55 @@ $(document).ready(function()
 				next.on('click', function()
 				{
 					mindSlider.trigger('next.owl.carousel');
+				});
+			}
+		}
+	}
+	function initallSlider()
+	{
+		if($('.all_slider').length)
+		{
+			var allSlider = $('.all_slider');
+			allSlider.owlCarousel(
+			{
+				// center :true,
+				loop:false,
+				margin:30,
+				nav:false,
+				dots:false,
+				autoplayHoverPause:true,
+				autoplay:false,
+				responsive:
+				{
+					0:{
+						items:1.5,
+
+					},
+					575:{items:2},
+					991:{items:3}
+				}
+			});
+
+			allSlider.on('click', '.all_fav', function (ev)
+			{
+			    $(ev.target).toggleClass('active');
+			});
+
+			if($('.all_prev').length)
+			{
+				var prev = $('.all_prev');
+				prev.on('click', function()
+				{
+					allSlider.trigger('prev.owl.carousel');
+				});
+			}
+
+			if($('.all_next').length)
+			{
+				var next = $('.all_next');
+				next.on('click', function()
+				{
+					allSlider.trigger('next.owl.carousel');
 				});
 			}
 		}
