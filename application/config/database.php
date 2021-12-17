@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -78,7 +78,7 @@ $db['default'] = array(
 	'hostname' => '151.106.119.126',
 	'username' => 'korpora2018_slsuniv',
 	'password' => '6@p9Sa@7E4',
-	'database' => 'korpora2018_slsuniv',
+	'database' => 'korpora2018_test_su',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => 'wpkv_',
 	'pconnect' => FALSE,
