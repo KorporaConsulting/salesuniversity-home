@@ -47,6 +47,12 @@
             }
         }
 
+        @media all and (max-width: 499px) {
+            .owl-item {
+                width: 210px !important;
+            }
+        }
+
         .trends {
             padding-top: 20px !important;
             padding-bottom: 20px !important;
