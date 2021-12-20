@@ -96,7 +96,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                            <!-- <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button> -->
                                         </form>
                                     </div>
                                 </div>
@@ -237,24 +237,16 @@
 
                                 <!-- Deals Slider -->
                                 <div class="owl-carousel owl-theme deals_slider">
-                                    <?php
-                                    $no = 0;
-                                    foreach ($all_product as $data) : ?>
-                                        <!-- Deals Item -->
-                                        <div class="owl-item deals_item">
-                                            <div class="deals_image"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="deals_content">
-                                                <div class="deals_info_line d-flex flex-row justify-content-start">
-                                                    <div class="deals_item_category"><a href="#">Headphones</a></div>
-                                                    <div class="deals_item_price_a ml-auto">$300</div>
-                                                </div>
-                                                <div class="deals_info_line d-flex flex-row justify-content-start">
-                                                    <div class="deals_item_name">Beoplay H7</div>
-                                                    <div class="deals_item_price ml-auto">$225</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach ?>
+                                    <!-- Deals Item -->
+                                    <div class="owl-item deals_item">
+                                        <div class="deals_image"><img src="<?= base_url() ?>assets/images/iklan/iklan1.jpeg" alt=""></div>
+                                    </div>
+                                    <div class="owl-item deals_item">
+                                        <div class="deals_image"><img src="<?= base_url() ?>assets/images/iklan/iklan2.jpeg" alt=""></div>
+                                    </div>
+                                    <div class="owl-item deals_item">
+                                        <div class="deals_image"><img src="<?= base_url() ?>assets/images/iklan/iklan3.jpeg" alt=""></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="deals_slider_nav_container">
@@ -265,7 +257,9 @@
 
                         <!-- Featured -->
                         <div class="featured">
+                            <!-- <h3 class="deals_title">hehe</h3> -->
                             <div class="tabbed_container">
+                                <h4 style="padding-bottom: 130px;">Kelas Pilihan</h4>
                                 <!-- Product Panel -->
                                 <div class="product_panel panel active">
                                     <div class="featured_slider slider">
@@ -278,7 +272,12 @@
                                                 <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 150px;" src="<?= $data['img'] ?>" alt=""></div>
                                                     <div class="product_content">
-                                                        <div class="product_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", "."); ?><span><s>Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></s></span></div>
+                                                        <?php
+                                                        if ($data['sale_price'] == null) { ?>
+                                                            <div class="product_price discount">Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></div>
+                                                        <?php } else { ?>
+                                                            <div class="product_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", "."); ?><span><s>Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></s></span></div>
+                                                        <?php } ?>
                                                         <div><a class="text-dark" href="product.html"><?= $data['judul'] ?></a></div>
                                                         <div class="product_extras">
                                                             <button class="product_cart_button">BELI</button>
@@ -582,14 +581,6 @@
                                     document.write(new Date().getFullYear());
                                 </script> Sales University
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </div>
-                            <div class="logos ml-sm-auto">
-                                <ul class="logos_list">
-                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
