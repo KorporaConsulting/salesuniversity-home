@@ -4,9 +4,11 @@
 <head>
     <title>Beranda - Sales University</title>
     <meta charset="utf-8">
+    <meta property="og:description" content="B2B B2C Mindset B2B B2C All Program Terlaris Program Terbaru Semua Program Tambah Pengetahuanmu Belajar mudah dimanapun, kapanpun, belajar dengan laptop, tablet atau&nbsp; smarthphone-mu. Beli Sekarang BENTUK DIRIMU Bentuk Mindset, Skill, dan Kompetensi on how to be a better sales in selling yang akan membantu Anda dalam kinerja dan keuntungan penjualan Program Overview Tidak ada … Beranda Selengkapnya »">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/images/favicon/favicon.png" />
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/styles/bootstrap4/bootstrap.min.css">
     <link href="<?= base_url() ?>assets/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -15,10 +17,14 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/plugins/slick-1.8.0/slick.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/styles/responsive.css">
+    <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="<?= base_url() ?>assets/wa/floating-wpp.css">
+    <script type="text/javascript" src="<?= base_url() ?>assets/wa/floating-wpp.js"></script>
 
 </head>
 
 <body>
+
     <style>
         .navbar-nav {
             font-size: larger;
@@ -58,8 +64,8 @@
             padding-bottom: 20px !important;
         }
     </style>
-    <div class="super_container">
 
+    <div class="super_container">
         <!-- Header -->
 
         <header class="header">
@@ -90,7 +96,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                            <!-- <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button> -->
                                         </form>
                                     </div>
                                 </div>
@@ -159,7 +165,7 @@
                 </div>
             </div>
         </div>
-
+        <div style="z-index: 1" class="float-right" id="wa"></div>
         <div class="trends">
 
             <div class="container">
@@ -231,24 +237,16 @@
 
                                 <!-- Deals Slider -->
                                 <div class="owl-carousel owl-theme deals_slider">
-                                    <?php
-                                    $no = 0;
-                                    foreach ($all_product as $data) : ?>
-                                        <!-- Deals Item -->
-                                        <div class="owl-item deals_item">
-                                            <div class="deals_image"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="deals_content">
-                                                <div class="deals_info_line d-flex flex-row justify-content-start">
-                                                    <div class="deals_item_category"><a href="#">Headphones</a></div>
-                                                    <div class="deals_item_price_a ml-auto">$300</div>
-                                                </div>
-                                                <div class="deals_info_line d-flex flex-row justify-content-start">
-                                                    <div class="deals_item_name">Beoplay H7</div>
-                                                    <div class="deals_item_price ml-auto">$225</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach ?>
+                                    <!-- Deals Item -->
+                                    <div class="owl-item deals_item">
+                                        <div class="deals_image"><img src="<?= base_url() ?>assets/images/iklan/iklan1.jpeg" alt=""></div>
+                                    </div>
+                                    <div class="owl-item deals_item">
+                                        <div class="deals_image"><img src="<?= base_url() ?>assets/images/iklan/iklan2.jpeg" alt=""></div>
+                                    </div>
+                                    <div class="owl-item deals_item">
+                                        <div class="deals_image"><img src="<?= base_url() ?>assets/images/iklan/iklan3.jpeg" alt=""></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="deals_slider_nav_container">
@@ -259,7 +257,9 @@
 
                         <!-- Featured -->
                         <div class="featured">
+                            <!-- <h3 class="deals_title">hehe</h3> -->
                             <div class="tabbed_container">
+                                <h4 style="padding-bottom: 130px;">Kelas Pilihan</h4>
                                 <!-- Product Panel -->
                                 <div class="product_panel panel active">
                                     <div class="featured_slider slider">
@@ -272,7 +272,12 @@
                                                 <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 150px;" src="<?= $data['img'] ?>" alt=""></div>
                                                     <div class="product_content">
-                                                        <div class="product_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", "."); ?><span><s>Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></s></span></div>
+                                                        <?php
+                                                        if ($data['sale_price'] == null) { ?>
+                                                            <div class="product_price discount">Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></div>
+                                                        <?php } else { ?>
+                                                            <div class="product_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", "."); ?><span><s>Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></s></span></div>
+                                                        <?php } ?>
                                                         <div><a class="text-dark" href="product.html"><?= $data['judul'] ?></a></div>
                                                         <div class="product_extras">
                                                             <button class="product_cart_button">BELI</button>
@@ -514,20 +519,11 @@
                             <a class="navbar-brand mb-3" href="#">
                                 <img src="<?= base_url() ?>assets/images/logo/logo-su.png" class="img-fluid">
                             </a>
-                            <div class="footer_title">Got Question? Call Us 24/7</div>
-                            <div class="footer_phone">+38 068 005 3570</div>
+                            <div class="footer_title">Hubungi Kami</div>
+                            <div class="footer_phone">021-22768311<br> +6221-29125627</div>
                             <div class="footer_contact_text">
-                                <p>17 Princess Road, London</p>
-                                <p>Grester London NW18JR, UK</p>
-                            </div>
-                            <div class="footer_social">
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                                </ul>
+                                <p>The Height Pondok Labu Residence</p>
+                                <p>Jl. Kramat Blok B06, Pangkalan Jati, Cinere, Depok</p>
                             </div>
                         </div>
                     </div>
@@ -586,14 +582,6 @@
                                 </script> Sales University
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </div>
-                            <div class="logos ml-sm-auto">
-                                <ul class="logos_list">
-                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -601,7 +589,7 @@
         </div>
     </div>
 
-    <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
+
     <script src="<?= base_url() ?>assets/styles/bootstrap4/popper.js"></script>
     <script src="<?= base_url() ?>assets/styles/bootstrap4/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/greensock/TweenMax.min.js"></script>
@@ -613,6 +601,21 @@
     <script src="<?= base_url() ?>assets/plugins/slick-1.8.0/slick.js"></script>
     <script src="<?= base_url() ?>assets/plugins/easing/easing.js"></script>
     <script src="<?= base_url() ?>assets/js/custom.js"></script>
+    <script script type="text/javascript">
+        $(function() {
+            $('#wa').floatingWhatsApp({
+                phone: '6285210278267',
+                popupMessage: 'Halo, Semoga hari anda selalu menyenangkan. Apakah ada yang bisa kami bantu?',
+                message: "",
+                showPopup: true,
+                showOnIE: false,
+                headerTitle: 'Hubungi Kami!',
+                headerColor: '#25D366',
+                backgroundColor: '#25D366',
+                buttonImage: '<img src="<?= base_url() ?>assets/wa/whatsapp.svg" />'
+            });
+        });
+    </script>
 </body>
 
 </html>
