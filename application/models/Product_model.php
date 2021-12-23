@@ -278,6 +278,12 @@ class Product_model extends CI_Model
             $start_sale = $this->get__sale_price_dates_from($data->id_post);
             $end_sale   = $this->get__sale_price_dates_to($data->id_post);
 
+            $tanggal  = strtotime($this->get__sale_price_dates_to($data->id_post));
+            $sekarang = time();
+            $diff     = $sekarang - $tanggal;
+            $hsl      = $diff;
+            $day      = floor($hsl / (60 * 60 * 24));
+
             $post['id_post']       = $data->id_post;
             $post['judul']         = $data->judul;
             $post['slug_post']     = $data->slug_post;
@@ -288,6 +294,7 @@ class Product_model extends CI_Model
             $post['sale_price']    = $sale_price;
             $post['start_sale']    = $start_sale;
             $post['end_sale']      = $end_sale;
+            $post['sisa_hari']     = abs($day);
             $post['regular_price'] = $reg_price;
             $post['img']           = $images;
             $hasil[$no]            = $post;
