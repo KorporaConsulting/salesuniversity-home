@@ -800,7 +800,7 @@ $(document).ready(function()
 				responsive:
 				{
 					0:{
-						items:2,
+						items:1,
 					},
 					575:{items:4},
 					991:{items:4}
@@ -848,7 +848,7 @@ $(document).ready(function()
 				responsive:
 				{
 					0:{
-						items:2,
+						items:1,
 					},
 					575:{items:4},
 					991:{items:4}
@@ -896,7 +896,7 @@ $(document).ready(function()
 				responsive:
 				{
 					0:{
-						items:2,
+						items:1,
 					},
 					575:{items:4},
 					991:{items:4}
@@ -992,7 +992,7 @@ $(document).ready(function()
 				responsive:
 				{
 					0:{
-						items:2,
+						items:1,
 					},
 					575:{items:4},
 					991:{items:4}
@@ -1040,7 +1040,7 @@ $(document).ready(function()
 				responsive:
 				{
 					0:{
-						items:2,
+						items:1,
 					},
 					575:{items:4},
 					991:{items:4}
