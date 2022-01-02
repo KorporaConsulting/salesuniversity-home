@@ -20,12 +20,13 @@ class Welcome extends CI_Controller
 		- Kelas Best Seller
 		- Kelas Per Kategori
 		*/
+		$data['onsale'] = $this->product->get_onsale_product();
 		$data['featured'] = $this->product->get_featured_product();
 		$data['all_product'] = $this->product->get_product();
-		$data['best_seller'] = $this->product->get_best_seller_product([10]);
-		$data['b2c'] = $this->product->get_product_by_category(46, [10]);
-		$data['b2bb2c'] = $this->product->get_product_by_category(48, [10]);
-		$data['mindset'] = $this->product->get_product_by_category(49, [10]);
+		$data['best_seller'] = $this->product->get_best_seller_product();
+		$data['b2c'] = $this->product->get_product_by_category(46);
+		$data['b2bb2c'] = $this->product->get_product_by_category(48);
+		$data['mindset'] = $this->product->get_product_by_category(49);
 		$this->load->view('home-copy', $data);
 	}
 	public function tes()
