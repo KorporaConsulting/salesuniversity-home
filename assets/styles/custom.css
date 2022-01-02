@@ -1,0 +1,244 @@
+
+#timer .countdown-wrapper {
+    margin: 0 auto;
+}
+#timer #countdown {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    color: #eee;
+    text-shadow: 1px 1px 5px black;
+    padding: 0px 0;
+}
+#timer .countdown-wrapper #countdown .timer {
+    margin: 10px;
+    padding: 20px;
+    font-size: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#timer .col-md-4.countdown-wrapper #countdown .timer {
+    margin: 10px;
+    padding: 20px;
+    font-size: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#timer .countdown-wrapper #countdown #hour {
+    -webkit-box-shadow: 0 0 0 5px rgba(92, 184, 92, .5);
+    -moz-box-shadow: 0 0 0 5px rgba(92, 184, 92, .5);
+    box-shadow: 0 0 0 5px rgba(92, 184, 92, .5);
+}
+#timer .countdown-wrapper #countdown #hour:hover {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(92, 184, 92, 1);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(92, 184, 92, 1);
+    box-shadow: 0px 0px 15px 1px rgba(92, 184, 92, 1);
+}
+#timer .countdown-wrapper #countdown #min {
+    -webkit-box-shadow: 0 0 0 5px rgba(91, 192, 222, .5);
+    -moz-box-shadow: 0 0 0 5px rgba(91, 192, 222, .5);
+    box-shadow: 0 0 0 5px rgba(91, 192, 222, .5);
+}
+#timer .countdown-wrapper #countdown #min:hover {
+    -webkit-box-shadow: 0px 0px 15px 1px rgb(91, 192, 222);
+    -moz-box-shadow: 0px 0px 15px 1px rgb(91, 192, 222);
+    box-shadow: 0px 0px 15px 1px rgb(91, 192, 222);
+}
+#timer .countdown-wrapper #countdown #sec {
+    -webkit-box-shadow: 0 0 0 5px rgba(2, 117, 216, .5);
+    -moz-box-shadow: 0 0 0 5px rgba(2, 117, 216, .5);
+    box-shadow: 0 0 0 5px rgba(2, 117, 216, .5)
+}
+#timer .countdown-wrapper #countdown #sec:hover {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(2, 117, 216, 1);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(2, 117, 216, 1);
+    box-shadow: 0px 0px 15px 1px rgba(2, 117, 216, 1);
+}
+#timer .countdown-wrapper .card .card-footer .btn {
+    margin: 2px 0;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    #timer .countdown-wrapper #countdown .timer {
+        margin: 10px;
+        padding: 20px;
+        font-size: 65px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+     #timer .countdown-wrapper #countdown .timer {
+        margin: 10px;
+        padding: 20px;
+        font-size: 72px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+@media (max-width: 768px) {
+    #timer .countdown-wrapper #countdown .timer {
+        margin: 10px;
+        padding: 20px;
+        font-size: 73px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+@media (max-width: 767px) {
+    #timer .countdown-wrapper #countdown #hour,
+    #timer .countdown-wrapper #countdown #min,
+    #timer .countdown-wrapper #countdown #sec {
+        font-size: 60px;
+        border-radius: 4%;
+    }
+}
+@media (max-width: 576px){
+    #timer .countdown-wrapper #countdown #hour,
+    #timer .countdown-wrapper #countdown #min,
+    #timer .countdown-wrapper #countdown #sec {
+        font-size: 25px;
+        border-radius: 4%;
+    }
+    #timer .countdown-wrapper #countdown .timer {
+        padding: 13px;
+    }
+}
+/* 
+  .card-img-overlay{
+    height: 100%;
+    display: none;
+  } */
+
+  .badge.badge-success{
+    background-color: green;
+    position: absolute; 
+    top: 0px;
+    right: -5px;
+   }
+   .badge.badge-primary{
+    background-color: blue;
+    position: absolute; 
+    top: 0px;
+    right: -5px;
+   }
+
+   @media (max-width: 767px) {
+    #bCer {
+        font-size: 10px;
+    }
+}
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+.wp-block {
+    margin: 0 0 15px 0;
+    padding:15px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    position: relative;
+    cursor: default;
+    border-radius: 2px;
+  }
+  
+  .wp-block.product {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0eded;
+  }
+  
+  .wp-block:before, .wp-block:after {
+    display: table;
+    content: "";
+  }
+  
+  .wp-block.product figure {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0eded;
+  }
+  
+  .img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .wp-block.product .product-title {
+    margin: 10px 0 0 0;
+    padding: 0;
+    border-bottom: 0;
+  }
+  
+  h2 {
+    font-size: 25px;
+  }
+  
+  .wp-block.product .product-title a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .wp-block.product p {
+    color: #616161;
+  }
+  
+  .wp-block.product .wp-block-footer {
+    border-top: 1px solid #e0eded;
+    padding-top: 15px;
+    padding-bottom:25px;
+  }
+  
+  .wp-block.product .price {
+    padding: 4px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .btn-base {
+    color: #fff !important;
+    background-color: #3498db;
+    border: 1px solid;
+    border-color: #258cd1;
+  }
+  
+  .btn-icon {
+    position: relative;
+  }
+  
+  .btn-icon.btn-sm span, .btn-icon.btn-sm input {
+    padding-left: 35px;
+  }
+  #pt {
+    color: inherit;
+    text-decoration: none;
+}

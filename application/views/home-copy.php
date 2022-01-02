@@ -16,7 +16,9 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/plugins/slick-1.8.0/slick.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/styles/custom.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-horizon/0.1.0/bootstrap-horizon.min.css">
     <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="<?= base_url() ?>assets/wa/floating-wpp.css">
     <script type="text/javascript" src="<?= base_url() ?>assets/wa/floating-wpp.js"></script>
@@ -32,6 +34,10 @@
         }
 
         #kategori::-webkit-scrollbar {
+            display: none;
+        }
+
+        .row-horizon::-webkit-scrollbar {
             display: none;
         }
 
@@ -58,6 +64,11 @@
                 width: 210px !important;
             }
         } */
+        .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+        }
 
         .trends {
             padding-top: 20px !important;
@@ -114,6 +125,19 @@
                     <a class="navbar-brand" href="#">
                         <img src="<?= base_url() ?>assets/images/logo/logo-su.png" class="img-fluid">
                     </a>
+                    <form action="https://salesuniversity.id/">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control input-lg" name="s" placeholder="Cari produk" />
+                                <input type="hidden" name="post_type" value="product">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-lg" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -135,7 +159,7 @@
                                 <a class="nav-link" href="#">Panduan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Login</a>
+                                <a class="nav-link btn btn-primary text-white" href="#">Daftar / Login</a>
                             </li>
                         </ul>
                     </div>
@@ -144,80 +168,514 @@
 
 
         </header>
-
         <!-- Banner -->
-
         <div class="container testimonial-group mt-3">
             <div id="kategori" style="overflow-x: auto;" class="text-center text-nowrap overflow-auto">
-                <a href="https://salesuniversity.id/kategori-produk/b2b-b2c" class="btn btn-info">B2B B2C</a>
-                <a href="https://salesuniversity.id/kategori-produk/b2b" class="btn btn-info">B2B</a>
-                <a href="https://salesuniversity.id/kategori-produk/b2c" class="btn btn-info">B2C</a>
-                <a href="https://salesuniversity.id/kategori-produk/sales-mindset" class="btn btn-info">Sales Mindset</a>
-                <a href="https://salesuniversity.id/shop/" class="btn btn-info">Semua Kategori</a>
+                <a href="https://salesuniversity.id/kategori-produk/b2b-b2c" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/b2b.png"><img width="20px" src="<?= base_url() ?>assets/images/icon/b2c.png"> B2B B2C</a>
+                <a href="https://salesuniversity.id/kategori-produk/b2b" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/b2b.png"> B2B</a>
+                <a href="https://salesuniversity.id/kategori-produk/b2c" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/b2c.png"> B2C</a>
+                <a href="https://salesuniversity.id/kategori-produk/sales-mindset" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/mind.png"> Sales Mindset</a>
+                <a href="https://salesuniversity.id/kategori-produk/leadership" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/leadership.png"> Leadership</a>
+                <a href="https://salesuniversity.id/kategori-produk/leadership" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/motivasi.png"> Motivasi</a>
+                <a href="https://salesuniversity.id/shop/" class="btn btn-info"><img width="20px" src="<?= base_url() ?>assets/images/icon/all.png"> Semua Kategori</a>
             </div>
         </div>
-
         <div class="container">
-            <div class="row mt-3 text-center">
-                <div class="col-md-12">
-                    <img id="img1" class="img-fluid" src="<?= base_url() ?>assets/images/logo/banner.jpeg" alt="">
-                    <img id="img2" class="img-fluid" src="<?= base_url() ?>assets/images/logo/banner2.jpeg" alt="">
+            <div class="row mt-3 text-center" id="img1">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="#">
+                                <img class="d-block w-100" src="<?= base_url() ?>assets/images/logo/banner.jpeg" alt="First slide">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#">
+                                <img class="d-block w-100" src="<?= base_url() ?>assets/images/logo/banner.jpeg" alt="First slide">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#">
+                                <img class="d-block w-100" src="<?= base_url() ?>assets/images/logo/banner.jpeg" alt="First slide">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-3 text-center" id="img2">
+                <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="#">
+                                <img id="img2" class="d-block w-100" src="<?= base_url() ?>assets/images/logo/banner2.jpeg" alt="First slide">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#">
+                                <img id="img2" class="d-block w-100" src="<?= base_url() ?>assets/images/logo/banner2.jpeg" alt="Second slide">
+
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#">
+                                <img id="img2" class="d-block w-100" src="<?= base_url() ?>assets/images/logo/banner2.jpeg" alt="third slide">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
-        <div style="z-index: 1" class="float-right" id="wa"></div>
+        <!-- WhatsApp -->
+        <!-- <div style="z-index: 1" class="float-right" id="wa"></div> -->
+        <!-- WhatsApp -->
         <div class="trends">
-
             <div class="container">
                 <!-- <div class="row bg-info" style="border-radius:25px"> -->
-                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark row py-4">
-
-                    <!-- Trends Content -->
-                    <div class="col-lg-4">
-                        <div class="trends_container">
-                            <h2 class="px-5 trends_title text-white">Best Seller</h2>
-                            <div class="px-5 trends_text">
-                                <p class="text-white">Produk Terlaris Tahun Ini</p>
+                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p style="font-size: 15px;" class="text-center text-white py-3">Jangan lupa untuk lihat daftar kelas anda dan tukar kode voucher kamu disini</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6 col-6 text-right">
+                                    <a id="bCer" href="https://salesuniversity.id/akun_saya/" class="btn btn-sm btn-light"><img class="img-fluid" style="width: 40px;" src="<?= base_url() ?>assets/images/icon/class.png" alt="" srcset=""> Daftar kelas anda</a>
+                                </div>
+                                <div class="col-lg-6 col-6 text-left">
+                                    <a id="bCer" href="https://salesuniversity.id/checkout/" class="btn btn-sm btn-light"><img class="img-fluid" style="width: 40px;" src="<?= base_url() ?>assets/images/icon/voucher.png" alt="" srcset=""> Tukarkan kode voucher</a>
+                                </div>
                             </div>
-                            <div class="px-5 trends_text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trends">
+            <div class="container">
+                <!-- <div class="row bg-info" style="border-radius:25px"> -->
+                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-lg-2 col-2 text-center">
+                            <img class="mx-auto" width="60px" src="<?= base_url() ?>assets/images/icon/flash.png">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left px-5">
+                            <!-- <img width="50px" src="<?= base_url() ?>assets/images/icon/flash.png"> -->
+                            <h2 class="trends_title text-white px-2">SEDANG PROMO</h2>
+                            <div class="trends_text px-2">
+                                <p class="text-white">Promo harga kelas dalam waktu terbatas*</p>
+                            </div>
+
+                            <div class="trends_text px-2">
                                 <a href="#" class="text-white">Lihat Semua ></a>
                             </div>
-                            <div class="px-5 trends_slider_nav">
+                            <div class="trends_slider_nav">
+                                <div class="flash_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                                <div class="flash_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-4 float-right">
+                            <section id="timer" class="text-center">
+                                <h4 class="text-white">Berakhir Dalam</h4>
+                                <div id="countdown">
+                                    <div class="well">
+                                        <span id="hour" style="border-radius:5px; font-size:3vw" class="timer badge badge-light text-dark"></span>
+                                        <span id="min" style="border-radius:5px; font-size:3vw" class="timer badge badge-light text-dark"></span>
+                                        <span id="sec" style="border-radius:5px; font-size:3vw" class="timer badge badge-light text-dark"></span>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="owl-carousel owl-theme flash_slider">
+                            <div class="owl-item active">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trends">
+            <div class="container">
+                <!-- <div class="row bg-info" style="border-radius:25px"> -->
+                <div style="background-image: linear-gradient(138deg, rgba(25,60,127,1) 0%, rgba(34,193,195,1) 100%); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-lg-2 col-2 text-center">
+                            <img class="mx-auto text-right" width="60px" src="<?= base_url() ?>assets/images/icon/best-seller.png">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col px-5">
+                            <!-- <img width="50px" src="<?= base_url() ?>assets/images/icon/flash.png"> -->
+                            <h2 class="trends_title text-white px-2">BEST SELLER</h2>
+                            <div class="trends_text px-2">
+                                <p class="text-white">Produk Terlaris Tahun Ini</p>
+                            </div>
+
+                            <div class="trends_text px-2">
+                                <a href="#" class="text-white">Lihat Semua ></a>
+                            </div>
+                            <div class="trends_slider_nav">
                                 <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
                                 <div class="trends_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                             </div>
                         </div>
                     </div>
-
                     <!-- Trends Slider -->
-                    <div class="col-lg-8">
-                        <div class="trends_slider_container">
+                    <div class="container">
+                        <!-- Trends Slider -->
+                        <div class="owl-carousel owl-theme trends_slider">
+                            <!-- Trends Slider Item -->
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-primary">BEST</span>
+                                    <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
 
-                            <!-- Trends Slider -->
-
-                            <div class="owl-carousel owl-theme trends_slider">
-                                <?php
-                                $no = 0;
-                                foreach ($best_seller as $data) : ?>
-                                    <!-- Trends Slider Item -->
-                                    <div class="owl-item">
-                                        <div class="trends_item">
-                                            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="trends_content">
-                                                <div class="trends_category"><a href="#"><?= $data['kategori'] ?></a></div>
-                                                <div class="trends_info clearfix">
-                                                    <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
-                                                    <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
-                                                    <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
-                                                    <?php endif ?>
-                                                    <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
-                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
                                             </div>
                                         </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-primary">BEST</span>
+                                    <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+
+                                <div class="card">
+                                    <span class="badge badge-primary">BEST</span>
+                                    <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -225,8 +683,7 @@
             </div>
         </div>
         <!-- Deals of the week -->
-
-        <div class="deals_featured">
+        <div class="deals_featured mb-5 pb-5">
             <div class="container">
                 <div class="row">
                     <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
@@ -259,33 +716,132 @@
                         <div class="featured">
                             <!-- <h3 class="deals_title">hehe</h3> -->
                             <div class="tabbed_container">
-                                <h4 style="padding-bottom: 130px;">Kelas Pilihan</h4>
+                                <h4 style="padding-top: 50px;">Kelas Pilihan</h4>
                                 <!-- Product Panel -->
                                 <div class="product_panel panel active">
                                     <div class="featured_slider slider">
-                                        <?php
-                                        $no = 0;
-                                        foreach ($featured as $data) : ?>
-                                            <!-- Slider Item -->
-                                            <div class="featured_slider_item">
-                                                <div class="border_active"></div>
-                                                <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                                    <div class="product_image d-flex flex-column align-items-center justify-content-center"><img style="width: 150px;" src="<?= $data['img'] ?>" alt=""></div>
-                                                    <div class="product_content">
-                                                        <?php
-                                                        if ($data['sale_price'] == null) { ?>
-                                                            <div class="product_price discount">Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></div>
-                                                        <?php } else { ?>
-                                                            <div class="product_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", "."); ?><span><s>Rp. <?= number_format($data['regular_price'], 0, ",", "."); ?></s></span></div>
-                                                        <?php } ?>
-                                                        <div><a class="text-dark" href="product.html"><?= $data['judul'] ?></a></div>
-                                                        <div class="product_extras">
-                                                            <button class="product_cart_button">BELI</button>
+
+                                        <!-- Slider Item -->
+                                        <div class="featured_slider_item mb-5 px-1">
+                                            <div class="card">
+                                                <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="#" style="color: inherit;">
+                                                        <h4 class="card-title">Product Title </h4>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-right text-muted py-3"><s>Rp.900.000</s></p>
                                                         </div>
                                                     </div>
+                                                    <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                                    <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
                                                 </div>
                                             </div>
-                                        <?php endforeach ?>
+                                        </div>
+                                        <div class="featured_slider_item mb-5 px-1">
+                                            <div class="card">
+                                                <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="#" style="color: inherit;">
+                                                        <h4 class="card-title">Product Title </h4>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-right text-muted py-3"><s>Rp.900.000</s></p>
+                                                        </div>
+                                                    </div>
+                                                    <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                                    <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="featured_slider_item mb-5 px-1">
+                                            <div class="card">
+                                                <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="#" style="color: inherit;">
+                                                        <h4 class="card-title">Product Title </h4>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-right text-muted py-3"><s>Rp.900.000</s></p>
+                                                        </div>
+                                                    </div>
+                                                    <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                                    <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="featured_slider_item mb-5 px-1">
+                                            <div class="card">
+                                                <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="#" style="color: inherit;">
+                                                        <h4 class="card-title">Product Title </h4>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-right text-muted py-3"><s>Rp.900.000</s></p>
+                                                        </div>
+                                                    </div>
+                                                    <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                                    <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="featured_slider_item mb-5 px-1">
+                                            <div class="card">
+                                                <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="#" style="color: inherit;">
+                                                        <h4 class="card-title">Product Title </h4>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-right text-muted py-3"><s>Rp.900.000</s></p>
+                                                        </div>
+                                                    </div>
+                                                    <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                                    <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="featured_slider_item mb-5 px-1">
+                                            <div class="card">
+                                                <img class="img-fluid rounded" src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <a href="#" style="color: inherit;">
+                                                        <h4 class="card-title">Product Title </h4>
+                                                    </a>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="card-text float-right text-muted py-3"><s>Rp.900.000</s></p>
+                                                        </div>
+                                                    </div>
+                                                    <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                                    <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="featured_slider_dots_cover"></div>
                                 </div>
@@ -298,105 +854,189 @@
 
         <!-- Popular Categories -->
 
-        <div class="trends" id="kelas-b2c">
-
+        <div class="trends">
             <div class="container">
                 <!-- <div class="row bg-info" style="border-radius:25px"> -->
-                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark row bg-info py-4">
-
-                    <!-- Trends Content -->
-                    <div class="col-lg-4">
-                        <div class="trends_container">
-                            <h2 class="px-5 trends_title text-white">KELAS B2C</h2>
-                            <div class="px-5 trends_text">
-                                <a href="#" class="text-white">Lihat Semua ></a>
-                            </div>
-                            <div class="px-5 trends_slider_nav">
-                                <div class="b2b_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
-                                <div class="b2b_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
-                            </div>
+                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-lg-2 col-2 text-center">
+                            <img class="mx-auto" width="60px" src="<?= base_url() ?>assets/images/icon/leadership.png">
                         </div>
                     </div>
-
-                    <!-- Trends Slider -->
-                    <div class="col-lg-8">
-                        <div class="trends_slider_container">
-                            <!-- Trends Slider -->
-                            <div class="owl-carousel owl-theme b2b_slider">
-                                <?php
-                                $no = 0;
-                                foreach ($b2c as $data) : ?>
-                                    <!-- Trends Slider Item -->
-                                    <div class="owl-item">
-                                        <div class="trends_item">
-                                            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="trends_content">
-                                                <div class="trends_category"><a href="#"><?= $data['kategori'] ?></a></div>
-                                                <div class="trends_info clearfix">
-                                                    <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
-                                                    <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
-                                                    <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
-                                                    <?php endif ?>
-                                                    <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="trends b2bb2c">
-            <div class="container">
-                <!-- <div class="row bg-info" style="border-radius:25px"> -->
-                <div class="border border-dark row py-4" style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px">
-
-                    <!-- Trends Content -->
-                    <div class="col-lg-4">
-                        <div class="trends_container">
-                            <h2 class="px-5 trends_title text-white">KELAS B2B B2C</h2>
-                            <div class="px-5 trends_text">
+                    <div class="row">
+                        <div class="col text-left px-5">
+                            <!-- <img width="50px" src="<?= base_url() ?>assets/images/icon/flash.png"> -->
+                            <h2 class="trends_title text-white px-2">KELAS LEADERSHIP</h2>
+                            <div class="trends_text px-2">
                                 <a href="#" class="text-white">Lihat Semua ></a>
                             </div>
-                            <div class="px-5 trends_slider_nav">
+                            <div class="trends_slider_nav">
                                 <div class="b2c_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
                                 <div class="b2c_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Trends Slider -->
-                    <div class="col-lg-8">
-                        <div class="trends_slider_container">
-                            <!-- Trends Slider -->
-                            <div class="owl-carousel owl-theme b2c_slider">
-                                <?php
-                                $no = 0;
-                                foreach ($b2bb2c as $data) : ?>
-                                    <!-- Trends Slider Item -->
-                                    <div class="owl-item">
-                                        <div class="trends_item">
-                                            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="trends_content">
-                                                <div class="trends_category"><a href="#"><?= $data['kategori'] ?></a></div>
-                                                <div class="trends_info clearfix">
-                                                    <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
-                                                    <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
-                                                    <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
-                                                    <?php endif ?>
-                                                    <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
-                                                </div>
+                    <div class="container">
+                        <div class="owl-carousel owl-theme b2c_slider">
+                            <div class="owl-item active">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
                                             </div>
                                         </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -406,49 +1046,186 @@
         <div class="trends">
             <div class="container">
                 <!-- <div class="row bg-info" style="border-radius:25px"> -->
-                <div class="border border-dark row py-4" style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px">
-
-                    <!-- Trends Content -->
-                    <div class="col-lg-4">
-                        <div class="trends_container">
-                            <h2 class="px-5 trends_title text-white">KELAS SALES MINDSET</h2>
-                            <div class="px-5 trends_text">
+                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-lg-2 col-2 text-center">
+                            <img class="mx-auto" width="60px" src="<?= base_url() ?>assets/images/icon/motivasi.png">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left px-5">
+                            <!-- <img width="50px" src="<?= base_url() ?>assets/images/icon/flash.png"> -->
+                            <h2 class="trends_title text-white px-2">KELAS MOTIVASI</h2>
+                            <div class="trends_text px-2">
                                 <a href="#" class="text-white">Lihat Semua ></a>
                             </div>
-                            <div class="px-5 trends_slider_nav">
+                            <div class="trends_slider_nav">
                                 <div class="mind_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
                                 <div class="mind_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Trends Slider -->
-                    <div class="col-lg-8">
-                        <div class="trends_slider_container">
-                            <!-- Trends Slider -->
-                            <div class="owl-carousel owl-theme mind_slider">
-                                <?php
-                                $no = 0;
-                                foreach ($mindset as $data) : ?>
-                                    <!-- Trends Slider Item -->
-                                    <div class="owl-item">
-                                        <div class="trends_item">
-                                            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="trends_content">
-                                                <div class="trends_category"><a href="#"><?= $data['kategori'] ?></a></div>
-                                                <div class="trends_info clearfix">
-                                                    <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
-                                                    <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
-                                                    <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
-                                                    <?php endif ?>
-                                                    <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
-                                                </div>
+                    <div class="container">
+                        <div class="owl-carousel owl-theme mind_slider">
+                            <div class="owl-item active">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
                                             </div>
                                         </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -459,55 +1236,405 @@
         <div class="trends">
             <div class="container">
                 <!-- <div class="row bg-info" style="border-radius:25px"> -->
-                <div class="border border-dark row py-4" style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img width="80px" src="<?= base_url() ?>assets/images/icon/wifi.png">
+                        <h4 class="mt-2">Belajar Full Online</h4>
+                        <p style="font-size: large;">Semua kursus tersedia dan dibawakan secara online lewat recorded video. Anda bebas belajar kapan saja.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img width="80px" src="<?= base_url() ?>assets/images/icon/toga.png">
+                        <h4 class="mt-2">Lembaga Kursus Resmi</h4>
+                        <p style="font-size: large;">Tersedia pilihan kursus yang luas dari beragam kategori yang diajarkan oleh para trainer terampil untuk meningkatkan keahlian dan karier anda.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img width="80px" src="<?= base_url() ?>assets/images/icon/sertifika.png">
+                        <h4 class="mt-2">Sertifikat Cetak</h4>
+                        <p style="font-size: large;">Berbagai kursus yang menawarkan sertifikat kelulusan atas nama anda yang dicetak hard copy dan dikirim langsung ke alamat anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <!-- Trends Content -->
-                    <div class="col-lg-4">
-                        <div class="trends_container">
-                            <h2 class="px-5 trends_title text-white">SEMUA KELAS</h2>
-                            <div class="px-5 trends_text">
+        <div class="trends">
+            <div class="container">
+                <!-- <div class="row bg-info" style="border-radius:25px"> -->
+                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-lg-2 col-2 text-center">
+                            <img class="mx-auto" width="60px" src="<?= base_url() ?>assets/images/icon/mind.png">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left px-5">
+                            <!-- <img width="50px" src="<?= base_url() ?>assets/images/icon/flash.png"> -->
+                            <h2 class="trends_title text-white px-2">KELAS SALES MINDSET</h2>
+                            <div class="trends_text px-2">
                                 <a href="#" class="text-white">Lihat Semua ></a>
                             </div>
-                            <div class="px-5 trends_slider_nav">
-                                <div class="all_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
-                                <div class="all_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
+                            <div class="trends_slider_nav">
+                                <div class="mind_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                                <div class="mind_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Trends Slider -->
-                    <div class="col-lg-8">
-                        <div class="trends_slider_container">
-                            <!-- Trends Slider -->
-                            <div class="owl-carousel owl-theme all_slider">
-                                <?php
-                                $no = 0;
-                                foreach ($all_product as $data) : ?>
-                                    <!-- Trends Slider Item -->
-                                    <div class="owl-item">
-                                        <div class="trends_item">
-                                            <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="<?= $data['img'] ?>" alt=""></div>
-                                            <div class="trends_content">
-                                                <div class="trends_category"><a href="#"><?= $data['kategori'] ?></a></div>
-                                                <div class="trends_info clearfix">
-                                                    <div class="trends_name"><a href="product.html"><?= $data['judul'] ?></a></div><br>
-                                                    <?php if ($data['sale_price'] != '' ?? null) : ?>
-                                                        <div class="bestsellers_price discount">Rp. <?= number_format($data['sale_price'], 0, ",", ".");  ?><span>Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></span></div>
-                                                    <?php else : ?>
-                                                        <div class="bestsellers_price">Rp.<?= number_format($data['regular_price'], 0, ",", "."); ?></div>
-                                                    <?php endif ?>
-                                                    <a name="" id="" class="text-center btn btn-md btn-primary btn-block mt-2" href="#" role="button"> BELI</a>
-                                                </div>
+                    <div class="container">
+                        <div class="owl-carousel owl-theme mind_slider">
+                            <div class="owl-item active">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
                                             </div>
                                         </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="trends">
+            <div class="container">
+                <!-- <div class="row bg-info" style="border-radius:25px"> -->
+                <div style="background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364, #2C5364, #203A43, #0F2027); border-radius:25px" class="border border-dark py-4">
+                    <div class="row">
+                        <div class="col-lg-2 col-2 text-center">
+                            <img class="mx-auto" width="60px" src="<?= base_url() ?>assets/images/icon/all.png">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left px-5">
+                            <!-- <img width="50px" src="<?= base_url() ?>assets/images/icon/flash.png"> -->
+                            <h2 class="trends_title text-white px-2">SEMUA KELAS</h2>
+                            <div class="trends_text px-2">
+                                <a href="#" class="text-white">Lihat Semua ></a>
+                            </div>
+                            <div class="trends_slider_nav">
+                                <div class="all_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                                <div class="all_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="owl-carousel owl-theme all_slider">
+                            <div class="owl-item active">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">BEST</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="card">
+                                    <span class="badge badge-success">PROMO</span>
+                                    <img class="img-fluid rounded" src="https://images.theage.com.au/2009/08/21/690978/bay6-600x400.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <a href="#" style="color: inherit;">
+                                            <h4 class="card-title">Product Title</h4>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-left text-danger"><b>Rp.600.000</b></p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="card-text float-right text-muted"><s>Rp.900.000</s></p>
+                                            </div>
+                                        </div>
+                                        <div><i style="color: orange;" class="fas fa-star"></i>4.8 (834)</div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-certificate"></i> Sertifikat</div>
+                                            </div>
+                                            <div class="col-lg-6 col-6 text-center">
+                                                <div><i style="color: grey;" class="fas fa-comments"></i> Konsultasi</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p><b>Goals:</b> Lorem ipsum, dolor sit ame.... <a href="">Lihat selengkapnya</a></p>
+                                        <a name="" id="" class="text-center btn btn-sm btn-primary btn-block mt-2 rounded" href="#" role="button"> BELI</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
 
         <footer class="footer">
@@ -602,6 +1729,23 @@
     <script src="<?= base_url() ?>assets/plugins/easing/easing.js"></script>
     <script src="<?= base_url() ?>assets/js/custom.js"></script>
     <script script type="text/javascript">
+        $(document).ready(function() {
+            setInterval(function time() {
+                var d = new Date();
+                var hours = 24 - d.getHours();
+                var min = 60 - d.getMinutes();
+                if ((min + '').length == 1) {
+                    min = '0' + min;
+                }
+                var sec = 60 - d.getSeconds();
+                if ((sec + '').length == 1) {
+                    sec = '0' + sec;
+                }
+                jQuery('#countdown #hour').html(hours);
+                jQuery('#countdown #min').html(min);
+                jQuery('#countdown #sec').html(sec);
+            }, 1000);
+        });
         $(function() {
             $('#wa').floatingWhatsApp({
                 phone: '6285210278267',
