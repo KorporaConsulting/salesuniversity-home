@@ -31,9 +31,9 @@
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <div class="mb-4">
+                            <div class="mt-4">
                                 <h1>Our workspace is Coming Soon!</h1>
-                                <p class="mb-4">Our website is under constructions currently, Get a notification on your e-mail for updates.</p>
+                                <p class="mb-4">Our website is under constructions currently.</p>
                             </div>
                         </div>
                     </div>
